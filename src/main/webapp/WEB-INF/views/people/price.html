@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Price</title>
+</head>
+<body>
+<p th:text="${person.getName()}">VALUE</p>
+<p th:text="${person.getSurname()}">VALUE</p>
+<p th:text="${person.getPrice()}">VALUE</p>
+<p th:text="${person.getId()}">VALUE</p>
+
+
+
+<form th:method="POST" th:action="@{/people/price/}" th:object="${person}">
+    <label for="id">Enter card number</label>
+    <input type="text" th:field="*{id}" id="id"/>
+    <label for="price">Enter price</label>
+    <input type="text" th:field="*{price}" id="price"/>
+    <br/>
+    <input type="submit" value="Buy?"/>
+</form>
+
+
+<br/>
+
+<a th:href="@{/people/}">First Page</a>
+
+</body>
+</html>

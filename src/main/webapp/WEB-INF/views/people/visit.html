@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New visit</title>
+</head>
+<body>
+<p th:text="${person.getName()}">VALUE</p>
+<p th:text="${person.getSurname()}">VALUE</p>
+<p th:text="${person.getId()}">VALUE</p>
+
+<form th:method="POST" th:action="@{/people/visit/}" th:object="${person}">
+    <label for="id">Enter card number</label>
+    <input type="text" th:field="*{id}" id="id"/>
+    <br/>
+    <input type="submit" value="In"/>
+</form>
+
+
+<form th:method="POST" th:action="@{/people/out/{id}(id=${person.getId()})}" th:object="${person}">
+    <label for="id2">Enter card number</label>
+    <input type="text" th:field="*{id}" id="id2"/>
+    <br/>
+    <input type="submit" value="Out"/>
+</form>
+
+
+<br/>
+
+<a th:href="@{/people/}">First Page</a>
+
+
+
+</body>
+</html>

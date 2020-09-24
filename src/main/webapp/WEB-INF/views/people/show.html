@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Person</title>
+</head>
+<body>
+
+<label>Name : </label>
+<p th:text="${person.getName()}">VALUE</p>
+<br/>
+<label>Surname: </label>
+<p th:text="${person.getSurname()}">VALUE</p>
+<br/>
+<label>Phone: </label>
+<p th:text="${person.getPhone()}">VALUE</p>
+<br/>
+<label>Subscription started:</label>
+<p th:text="${#dates.format(person.getBegin(), 'dd-MM-yyyy')}">VALUE</p>
+<br/>
+<label>Subscription is out: </label>
+<p th:text="${#dates.format(person.getEnd(), 'dd-MM-yyyy')}">VALUE</p>
+<br/>
+<label>card number: </label>
+<p th:text="${person.getId()}">VALUE</p>
+
+<br/>
+
+<a th:href="@{/people/price/{id}(id=${person.id})}">Price</a>
+<br/>
+<a th:href="@{/people/visit/{id}(id=${person.id})}">Visit</a>
+
+
+<br/>
+
+<a th:href="@{/people/}">First Page</a>
+
+</body>
+</html>
